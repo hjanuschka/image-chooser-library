@@ -176,8 +176,7 @@ public class MediaChooserManager extends BChooser implements
                 photoPickerIntent.putExtras(extras);
             }
             Intent photoPickerIntent = new Intent();
-            photoPickerIntent.setType("image/*");
-            photoPickerIntent.setType("video/*");
+            photoPickerIntent.setType("image/*,video/*");
             photoPickerIntent.setAction(Intent.ACTION_GET_CONTENT);
             startActivity(photoPickerIntent);
        

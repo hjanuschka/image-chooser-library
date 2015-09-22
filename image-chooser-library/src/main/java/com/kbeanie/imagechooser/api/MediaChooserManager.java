@@ -169,16 +169,27 @@ public class MediaChooserManager extends BChooser implements
         }
         return path;
     }
-
-    private void chooseMedia() throws Exception {
-        checkDirectory();
-        try {
-            Intent intent = new Intent(Intent.ACTION_PICK);
+    private void pickImageVideoLolipop() {
+      if (Build.VERSION.SDK_INT < 19) {
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK); 
             if (extras != null) {
                 intent.putExtras(extras);
             }
-            intent.setType("image/*,video/*");
-            startActivity(intent);
+            photoPickerIntent.setType("image/* video/*");
+             startActivity(intent);
+       } else {
+            Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
+            if (extras != null) {
+                intent.putExtras(extras);
+            }
+            photoPickerIntent.setType("*/*");
+             startActivity(intent);
+       }
+    }
+    private void chooseMedia() throws Exception {
+        checkDirectory();
+        try {
+          pickImageVideoLolipop();
         } catch (ActivityNotFoundException e) {
             throw new Exception("Activity not found");
         }

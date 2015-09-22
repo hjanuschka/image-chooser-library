@@ -173,17 +173,17 @@ public class MediaChooserManager extends BChooser implements
       if (Build.VERSION.SDK_INT < 19) {
             Intent photoPickerIntent = new Intent(Intent.ACTION_PICK); 
             if (extras != null) {
-                intent.putExtras(extras);
+                photoPickerIntent.putExtras(extras);
             }
             photoPickerIntent.setType("image/* video/*");
-             startActivity(intent);
+             startActivity(photoPickerIntent);
        } else {
             Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
             if (extras != null) {
-                intent.putExtras(extras);
+                photoPickerIntent.putExtras(extras);
             }
             photoPickerIntent.setType("*/*");
-             startActivity(intent);
+             startActivity(photoPickerIntent);
        }
     }
     private void chooseMedia() throws Exception {

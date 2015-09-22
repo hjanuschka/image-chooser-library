@@ -172,10 +172,11 @@ public class MediaChooserManager extends BChooser implements
     }
     private void pickImageVideoLolipop() {
     
+            
+            Intent photoPickerIntent = new Intent();
             if (extras != null) {
                 photoPickerIntent.putExtras(extras);
             }
-            Intent photoPickerIntent = new Intent();
             photoPickerIntent.setType("image/*,video/*");
             photoPickerIntent.setAction(Intent.ACTION_GET_CONTENT);
             startActivity(photoPickerIntent);

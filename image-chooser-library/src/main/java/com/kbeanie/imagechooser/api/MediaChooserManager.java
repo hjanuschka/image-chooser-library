@@ -177,7 +177,7 @@ public class MediaChooserManager extends BChooser implements
             if (extras != null) {
                 intent.putExtras(extras);
             }
-            intent.setType("*/*");
+            intent.setType("image/* video/*");
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
             throw new Exception("Activity not found");
